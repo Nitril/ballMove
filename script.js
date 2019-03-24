@@ -1,4 +1,4 @@
-
+﻿
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;           //współrzędna x
@@ -74,8 +74,9 @@ function handleOrientation(event) {
   if(gamma >0) {
     console.log("leci w PRAWO ")
     
-      x += dx;
+      
       move()
+      x += dx;
       //showMoves(gamma);
       
   }
@@ -83,9 +84,9 @@ function handleOrientation(event) {
   if(gamma <0) {
     
       console.log("leci w LEWO ")
-      x -= dx;
-      move()
       
+      move()
+      x -= dx;
       //showMoves(-gamma);
      
 
@@ -95,18 +96,18 @@ function handleOrientation(event) {
   if(beta <90) {
     
     console.log("leci w GÓRĘ ")
-    y -= dy;
+    
     move()
     //showMoves(beta);
-      
+    y -= dy;
   }
 
   if(beta >90) {
     
     console.log("leci w DÓŁ ")
-    y += dy;
-    move()
     
+    move()
+    y += dy;
     //showMoves(-beta);
     
     
