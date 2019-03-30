@@ -89,6 +89,14 @@ function drawCircle(radius, ccolor, posX=width/2, posY=height/2) {
 }     
 
 function drawBall() {                            //rysowanie piłki
+
+    if (ball.position.x+ball.radius > width) {
+      
+      ball.position.x = width-ball.radius;
+    }
+    else if ((ball.position.x-ball.radius < 0)) {
+      ball.position.x = ball.radius;
+    }
     drawCircle(ball.radius, "green", ball.position.x, ball.position.y);
     console.log("KS X: "+ ball.position.x +" Y: "+ ball.position.y);
     //ctx.restore();
@@ -100,7 +108,7 @@ function setBoard() {
     
     drawBall();
     
-    loopTimer = setInterval(loop, 10);
+    loopTimer = setInterval(loop, 5);
 
 
 }
@@ -123,6 +131,7 @@ var loop = function() {
       }*/
       if(ball.position.x + ball.radius > canvas.width || ball.position.x - ball.radius < ball.radius) {   //bounce from right and left frame
         ball.velocity.x = -ball.velocity.x;
+        
       }
       
 
