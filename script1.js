@@ -32,7 +32,7 @@ window.addEventListener("orientationchange", function() {
     //     console.log("leci w PRAWO  " + absolute);
     
         ball.position.x += gamma;
-        //ball.position.y += beta;
+        ball.position.y += beta;
         
         //showMoves(gamma);
         //tmp++;
@@ -97,6 +97,13 @@ function drawBall() {                            //rysowanie piłki
     else if ((ball.position.x-ball.radius < 0)) {
       ball.position.x = ball.radius;
     }
+    if (ball.position.y+ball.radius > height) {
+      
+      ball.position.y = height-ball.radius;
+    }
+    else if ((ball.position.y-ball.radius < 0)) {
+      ball.position.y = ball.radius;
+    }
     drawCircle(ball.radius, "green", ball.position.x, ball.position.y);
     console.log("KS X: "+ ball.position.x +" Y: "+ ball.position.y);
     //ctx.restore();
@@ -126,13 +133,13 @@ var loop = function() {
     // ctx.closePath();
     
     //ctx.restore();
-    /*if (ball.position.y+ball.radius > height-ball.radius ||ball.position.y-ball.radius   < ball.radius) {  //bounce from top and bottom frame
-        ball.velocity.y = -ball.velocity.y;
-      }*/
-      if(ball.position.x + ball.radius > canvas.width || ball.position.x - ball.radius < ball.radius) {   //bounce from right and left frame
-        ball.velocity.x = -ball.velocity.x;
+      // if (ball.position.y+ball.radius > height-ball.radius ||ball.position.y-ball.radius   < ball.radius) {  //bounce from top and bottom frame
+      //   ball.velocity.y = -ball.velocity.y;
+      // }
+      // if(ball.position.x + ball.radius > width-ball.radius || ball.position.x - ball.radius < ball.radius) {   //bounce from right and left frame
+      //   ball.velocity.x = -ball.velocity.x;
         
-      }
+      // }
       
 
       ctx.clearRect(0, 0, width, height);
