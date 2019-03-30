@@ -464,4 +464,5 @@ var loop = function() {
     //ctx.translate(ball.position.x, ball.position.y);
     drawBall();
     drawCircle((ball.radius*1.50), "silver", width-(3*ball.radius), height-(3*ball.radius));
+    
 }
