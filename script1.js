@@ -26,23 +26,26 @@ window.addEventListener("orientationchange", function() {
     var alpha    = e.alpha;
     var beta     = e.beta;
     var gamma    = e.gamma;
-    let tmp = 1;
+    //let tmp = 1;
     
-    if(alpha > 0 || gamma >0) {
-        console.log("leci w PRAWO  " + absolute);
-        ball.position.x += ball.velocity.x;
-        //showMoves(gamma);
-        tmp++;
+    // if(alpha > 0 || gamma >0) {
+    //     console.log("leci w PRAWO  " + absolute);
+    
+        ball.position.x += gamma;
+        //ball.position.y += beta;
         
-    }  
-    if(alpha < 0 || gamma <0) {
-        console.log("leci w LEWO ");
+        //showMoves(gamma);
+        //tmp++;
+        
+    //}  
+    //if(alpha < 0 || gamma <0) {
+        //console.log("leci w LEWO ");
                  
-        ball.position.x -= ball.velocity.x;
+        //ball.position.x -= ball.velocity.x;
         //tmp++;
         //showMoves(-gamma);
          
-    } 
+    //} 
     // if(beta <90) {
       
     //   console.log("leci w GÓRĘ ")
@@ -118,10 +121,10 @@ var loop = function() {
     /*if (ball.position.y+ball.radius > height-ball.radius ||ball.position.y-ball.radius   < ball.radius) {  //bounce from top and bottom frame
         ball.velocity.y = -ball.velocity.y;
       }*/
-
-      if(ball.position.x + ball.radius > canvas.width-ball.radius || ball.position.x - ball.radius < ball.radius) {   //bounce from right and left frame
+      if(ball.position.x + ball.radius > canvas.width || ball.position.x - ball.radius < ball.radius) {   //bounce from right and left frame
         ball.velocity.x = -ball.velocity.x;
       }
+      
 
       ctx.clearRect(0, 0, width, height);
     
